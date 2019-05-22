@@ -1,0 +1,91 @@
+lizhen: 369360.38，8000
+  qunaer:
+    tiqianHuan: yes
+    dayRate: 0.05%
+    anqi: 1496.48
+    anqiDate: 0607
+    bishu: benjin0414: 2750, benjin0407: 1200, benjin0403: 5000
+    daihuanZongji: 8950
+  meituan: 
+    tiqianHuan: yes
+    dayRate: 0.05%   
+    anqi: 1468.51
+    anqiDate: 0608
+    bishu: benjin0308: 12000, benjin0401: 3000, benjin0414: 900，
+    daihuanZongji: 15900
+  jiebei: 
+    tiqianHuan: yes
+    dayRate: 0.05%   
+    anqi: 261.0
+    anqiDate: 0528
+    bishu: benjin0219: 24000, benjin0321: 5000
+    daihuanZongji: 29000
+  zhaohangShandiandai: 
+    yearRate: 7.2%
+    tiqianhuan: yes
+    suihuansuidai: yes
+    aiqi: 1840.62
+    anqiDate: 0619
+    bishu: benjin0302: 5000, benjin0426: 4000, benjin0401: 6000, benjin0119: 142000
+    daihuanZongji:  140150.38
+  zhaolianEjinrong:
+    daiRate: 0.0495%
+    tiqianhuan: yes
+    anqi: 
+    anqiDate:
+    bishu: benjin0226: 39000, benjin0330: 3000, benjin0501: 1300, benjin0506: 2000
+    daihuanZongji: 39000
+  zhaohangYizhaodai:
+    Rate:
+    tiqianhuan: yes
+    anqi: 
+    anqiDate: 0520
+    bishu: 
+    daihuanzongji: 125000
+  weilidai:
+    Rate:
+    tiqianhuan: yes
+    anqi: 
+    anqiDate: 
+    bishu: 
+    daihuanzongji: 11000
+
+haiyuan: 299119.88，35000
+  qunaer:
+    daihuanZongji: 10000
+  baidu:
+    zongxiangdai:
+      anqi: 9167.99
+      anqiDate: 0519
+      daihuanZongji: 82619.88
+    manyidai:
+      anqi: 2117.76
+      anqiDate: 0615
+      shenyuZongji: 40500
+  jiebei:
+    dayRate: 0.05%
+    anqi: 1425.67
+    anqiDaate: 0521
+    tiqianhuan: yes
+    daihuanZongji: 43000
+  weilidai:
+    daiRate: 0.025%
+    tiqianhuan: yes
+    anqi: 4510
+    anqiDate: 0518
+    bishu: benjin0118: 40000 + 40000,benjin0514:1000+1000+1000
+    daihuanZongji: 83000
+  pingAn:
+    anqi:  11826.63:
+    anqiDate: 0520
+    shenyuZongji: 172642.65
+  zhaoLian:
+    daihuanZongji: 40000
+
+
+
+南宁住房贷款： 每月15日：5645
+丽珍弟： 70000
+zhuli: 30000
+
+
