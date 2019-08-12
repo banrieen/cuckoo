@@ -1,6 +1,9 @@
-# cuckoo
+cuckoo
+====================================================
 
-个人助手
+布谷鸟个人助手
+
+Django / Golang 全面网站
 
 原型参考：[target](https://free.modao.cc/app/design/p428E8008301551839268105 )
 
