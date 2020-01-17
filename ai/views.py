@@ -7,15 +7,15 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
-from . models import Choice, Question
+from . models import Lottery, Guessor
 
 class IndexView(generic.ListView):
     template_name = 'blog/index.html'
     context_object_name = 'latest_question_list'
 
-    def get_queryset(self):
-        """ 返回最新的5个问题 """
-        return Question.objects.filter(
-            pub_date__lte = timezone.now()
+    def get_lottery(self):
+        """ Return the detail of lottery """
+        return Lottery.objects.filter(
+            pub_date=timezone.now()
         ).order_by('-pub_date')[:5]
         # Question.objects.order_by('-pub_date')[:5]

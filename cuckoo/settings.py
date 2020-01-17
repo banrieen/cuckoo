@@ -11,8 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-# import pymysql
-# pymysql.install_as_MySQLdb()
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -28,12 +27,16 @@ SECRET_KEY = 'tbbhul-q9vl=$fz)w5v_a75o&_(4#o!tlm7pi$&xv3^(d=&iqo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+                 'www.caiqi.live',
+                 '127.0.0.1',
+                 ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'ai.apps.AiConfig',
     'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,8 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     # 'rest_framework'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,7 +57,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.cache.UpdateCacheMiddleware',   # 在返回的response中加入到缓存
+    # 'django.middleware.cache.FetchFromCacheMiddleware',  # 在接收到的request请求中加入到缓存
+
 ]
+CACHE_MIDDLEWARE_SECONDS = "5"
+CACHE_MIDDLEWARE_KEY_PREFIX = "cuckoo"
 
 ROOT_URLCONF = 'cuckoo.urls'
 
@@ -82,10 +92,51 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'primary' : {
+        'NAME': 'cuckoo_data',
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'root',
+        'PASSWORD': 'BigData1018',
+        'HOST': '122.51.195.199',
+        'PORT': '3306',
+    },
+    'job' : {
+        'NAME' : 'cuckoo_job',
+        'ENGINE' : 'django.db.backends.postgresql',
+        'USER': 'postdb',
+        'PASSWORD': 'Front1018',
+        'HOST': '122.51.195.199',
+        'PORT': '5432',
+    },
+    'replica1' : {},
+    'replica2' : {},
+    
+}
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://122.51.195.199:6379",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": "Front1018",
+            "SOCKET_CONNECT_TIMEOUT": 60,  # in seconds
+            "SOCKET_TIMEOUT": 5,  # in seconds
+            "IGNORE_EXCEPTIONS": True,
+            "CONNECTION_POOL_KWARGS": {"max_connections": 10, "retry_on_timeout": True},
+            "CONNECTION_POOL_KWARGS": {"max_connections": 100},  # 连接池最大连接数
+            'MAX_ENTRIES': 100,      # 最大缓存个数（默认300）
+            'CULL_FREQUENCY': 5,     # 缓存到达最大个数之后，剔除缓存个数的比例，即：1/CULL_FREQUENCY（默认3）
+
+        },
+        "KEY_PREFIX": "cuckoo",
+        'VERSION': 1,
     }
 }
 
-
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -115,6 +166,10 @@ TIME_ZONE = 'Asia/Shanghai'
 USE_I18N = True
 
 USE_L10N = True
+
+
+
+
 
 USE_TZ = True
 
